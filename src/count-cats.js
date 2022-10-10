@@ -16,7 +16,6 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function countCats(arr) {
   return arr.flat().filter(a => a == '^^').length;
-  
 }
 
 module.exports = {

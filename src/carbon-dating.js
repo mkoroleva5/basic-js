@@ -25,7 +25,6 @@ function dateSample(sampleActivity) {
     else {
       return false
     }
-  
 }
 
 module.exports = {
