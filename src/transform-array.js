@@ -13,17 +13,36 @@ const { NotImplementedError } = require('../extensions/index.js');
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  * 
  */
-function transform(arr) {
-  if (!Array.isArray(arr)) return `'arr' parameter must be an instance of the Array!`;
-  let res = arr;
+ function transform(arr) {
+  if (!Array.isArray(arr)) throw new Error (`'arr' parameter must be an instance of the Array!`);
+  let res = [];
   for (let i = 0; i < arr.length; i++) {
-    if (res[i] === '--discard-next') res.splice(i, 2);
-    if (res[i] === '--discard-prev') {
-      res.splice(i-1, 1);
-      res.splice(i, 1);
+    switch (arr[i]) {
+      case '--discard-prev':
+        if (i !== 0 && i !== arr.length - 1) {
+          if (arr[i-2] !== '--discard-next') {
+            res.pop();
+          }
+        }
+        break;
+      case '--double-next':
+        if (i !== 0 && i !== arr.length - 1) {
+          res.push(arr[i+1]);
+        }
+        break;
+      case '--double-prev':
+        if (i !== 0 && i !== arr.length - 1) {
+          if (arr[i-2] !== '--discard-next') {
+            res.push(arr[i-1]);
+          }
+        }
+        break;
+      default:
+        if (arr[i] !== '--discard-next' && arr[i-1] !== '--discard-next') {
+          res.push(arr[i]);
+          break;
+        }
     }
-    if (res[i] === '--double-next') res.splice(i, 1);
-    if (res[i] === '--double-prev') res.splice(i, 1);
   }
   return res;
 }
