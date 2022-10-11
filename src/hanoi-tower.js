@@ -19,7 +19,6 @@ function calculateHanoi(disksNumber, turnsSpeed) {
     turns: 2**disksNumber - 1,
     seconds: Math.floor(3600/turnsSpeed*(2**disksNumber - 1))
   }
-  
 }
 
 module.exports = {
