@@ -47,7 +47,6 @@ class VigenereCipheringMachine {
         j++;
       }
     }
-
     if (this.type) {
       return resultArr.join('');
     } else {
@@ -76,7 +75,6 @@ class VigenereCipheringMachine {
         j++;
       }
     }
-    
     if (this.type) {
       return resultArr.join('');
     } else {
