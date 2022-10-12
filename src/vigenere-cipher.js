@@ -20,13 +20,65 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 class VigenereCipheringMachine {
-  encrypt() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  type = true;
+  constructor(type = true) {
+    this.type = type;
   }
-  decrypt() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+
+  alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  
+  encrypt(string, key) {
+    if (!string || !key) {
+			throw new Error('Incorrect arguments!');
+		}
+    
+    //if (key.length < string.length) {
+    //  key.repeat(string.length).slice(0, string.length);
+    //}
+
+    let strArr = string.toUpperCase().split('');
+    let keyArr = key.toUpperCase().split('');
+    let resultArr = [];
+    let j = 0;
+    for (let i = 0; i < strArr.length; i++) {
+      let strIndex = this.alphabet.indexOf(strArr[i]);
+      let keyIndex = this.alphabet.indexOf(keyArr[j]);
+      if (strIndex === -1) {
+        resultArr.push(strArr[i]);
+      } else {
+        let letters = this.alphabet[((this.alphabet.length + (strIndex + keyIndex)) % this.alphabet.length)];
+        resultArr.push(letters);
+        j++;
+        if (j >= key.length) j = j % keyArr.length;
+      }
+    }
+    if (this.type) return resultArr.join('');
+    else return resultArr.reverse().join('');
+  }
+
+  decrypt(string, key) {
+    if (!string || !key) {
+			throw new Error('Incorrect arguments!');
+		}
+
+    let strArr = string.toUpperCase().split('');
+    let keyArr = key.toUpperCase().split('');
+    let resultArr = [];
+    let j = 0;
+    for (let i = 0; i < strArr.length; i++) {
+      let strIndex = this.alphabet.indexOf(strArr[i]);
+      let keyIndex = this.alphabet.indexOf(keyArr[j]);
+      if (strIndex === -1) {
+        resultArr.push(strArr[i]);
+      } else {
+        let letters = this.alphabet[((this.alphabet.length + (strIndex - keyIndex)) % this.alphabet.length)];
+        resultArr.push(letters);
+        j++;
+        if (j >= key.length) j = j % keyArr.length;
+      }
+    }
+    if (this.type) return resultArr.join('');
+    else return resultArr.reverse().join('');
   }
 }
 
