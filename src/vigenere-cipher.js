@@ -41,11 +41,11 @@ class VigenereCipheringMachine {
       if (strIndex === -1) {
         resultArr.push(strArr[i]);
       } else {
+        if (j >= key.length) j = j % keyArr.length;
         let keyIndex = this.alphabet.indexOf(keyArr[j]);
         let letters = this.alphabet[((this.alphabet.length + (strIndex + keyIndex)) % this.alphabet.length)];
         resultArr.push(letters);
         j++;
-        if (j >= key.length) j = j % keyArr.length;
       }
     }
 
@@ -70,11 +70,11 @@ class VigenereCipheringMachine {
       if (strIndex === -1) {
         resultArr.push(strArr[i]);
       } else {
+        if (j >= key.length) j = j % keyArr.length;
         let keyIndex = this.alphabet.indexOf(keyArr[j]);
         let letters = this.alphabet[((this.alphabet.length + (strIndex - keyIndex)) % this.alphabet.length)];
         resultArr.push(letters);
         j++;
-        if (j >= key.length) j = j % keyArr.length;
       }
     }
     
