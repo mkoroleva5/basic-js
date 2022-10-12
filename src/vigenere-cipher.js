@@ -20,7 +20,8 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 class VigenereCipheringMachine {
-  type = true;
+  throw new NotImplementedError('Not implemented');
+  /*type = true;
   constructor(type = true) {
     this.type = type;
   }
@@ -83,7 +84,7 @@ class VigenereCipheringMachine {
     } else {
       return resultArr.reverse().join('');
     }
-  }
+  }*/
 }
 
 module.exports = {
