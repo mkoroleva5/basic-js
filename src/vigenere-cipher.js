@@ -20,15 +20,15 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 class VigenereCipheringMachine {
-  /*type = true;
+  type = true;
   constructor(type = true) {
     this.type = type;
   }
 
   alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  */
+  
   encrypt(string, key) {
-    /*if (!string || !key) {
+    if (!string || !key) {
 			throw new Error('Incorrect arguments!');
 		}
 
@@ -53,12 +53,11 @@ class VigenereCipheringMachine {
       return resultArr.join('');
     } else {
       return resultArr.reverse().join('');
-    }*/
-    throw new NotImplementedError('Not implemented');
+    }
   }
 
   decrypt(string, key) {
-    /*if (!string || !key) {
+    if (!string || !key) {
 			throw new Error('Incorrect arguments!');
 		}
 
@@ -83,8 +82,7 @@ class VigenereCipheringMachine {
       return resultArr.join('');
     } else {
       return resultArr.reverse().join('');
-    }*/
-    throw new NotImplementedError('Not implemented');
+    }
   }
 }
 
