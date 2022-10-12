@@ -32,27 +32,27 @@ class VigenereCipheringMachine {
 			throw new Error('Incorrect arguments!');
 		}
 
-    let strArr = string.toUpperCase();
-    let keyArr = key.toUpperCase();
-    let resultArr = '';
+    let strArr = string.toUpperCase().split('');
+    let keyArr = key.toUpperCase().split('');
+    let resultArr = [];
     let j = 0;
     for (let i = 0; i < strArr.length; i++) {
       let strIndex = this.alphabet.indexOf(strArr[i]);
       let keyIndex = this.alphabet.indexOf(keyArr[j]);
       if (strIndex === -1) {
-        resultArr += strArr[i];
+        resultArr.push(strArr[i]);
       } else {
         let letters = this.alphabet[((this.alphabet.length + (strIndex + keyIndex)) % this.alphabet.length)];
-        resultArr += letters;
+        resultArr.push(letters);
         j++;
         if (j >= key.length) j = j % keyArr.length;
       }
     }
 
     if (this.type) {
-      return resultArr;
+      return resultArr.join('');
     } else {
-      return resultArr.split('').reverse().join('');
+      return resultArr.reverse().join('');
     }
   }
 
@@ -61,27 +61,27 @@ class VigenereCipheringMachine {
 			throw new Error('Incorrect arguments!');
 		}
 
-    let strArr = string.toUpperCase();
-    let keyArr = key.toUpperCase();
+    let strArr = string.toUpperCase().split('');
+    let keyArr = key.toUpperCase().split('');
     let resultArr = [];
     let j = 0;
     for (let i = 0; i < strArr.length; i++) {
       let strIndex = this.alphabet.indexOf(strArr[i]);
       let keyIndex = this.alphabet.indexOf(keyArr[j]);
       if (strIndex === -1) {
-        resultArr += strArr[i];
+        resultArr.push(strArr[i]);
       } else {
         let letters = this.alphabet[((this.alphabet.length + (strIndex - keyIndex)) % this.alphabet.length)];
-        resultArr += letters;
+        resultArr.push(letters);
         j++;
         if (j >= key.length) j = j % keyArr.length;
       }
     }
     
     if (this.type) {
-      return resultArr;
+      return resultArr.join('');
     } else {
-      return resultArr.split('').reverse().join('');
+      return resultArr.reverse().join('');
     }
   }
 }
