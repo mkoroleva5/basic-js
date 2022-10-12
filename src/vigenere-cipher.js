@@ -23,10 +23,9 @@ class VigenereCipheringMachine {
   type = true;
   constructor(type = true) {
     this.type = type;
+    this.alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   }
 
-  alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  
   encrypt(string, key) {
     if (!string || !key) {
 			throw new Error('Incorrect arguments!');
