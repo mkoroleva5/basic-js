@@ -38,10 +38,10 @@ class VigenereCipheringMachine {
     let j = 0;
     for (let i = 0; i < strArr.length; i++) {
       let strIndex = this.alphabet.indexOf(strArr[i]);
-      let keyIndex = this.alphabet.indexOf(keyArr[j]);
       if (strIndex === -1) {
         resultArr.push(strArr[i]);
       } else {
+        let keyIndex = this.alphabet.indexOf(keyArr[j]);
         let letters = this.alphabet[((this.alphabet.length + (strIndex + keyIndex)) % this.alphabet.length)];
         resultArr.push(letters);
         j++;
@@ -67,10 +67,10 @@ class VigenereCipheringMachine {
     let j = 0;
     for (let i = 0; i < strArr.length; i++) {
       let strIndex = this.alphabet.indexOf(strArr[i]);
-      let keyIndex = this.alphabet.indexOf(keyArr[j]);
       if (strIndex === -1) {
         resultArr.push(strArr[i]);
       } else {
+        let keyIndex = this.alphabet.indexOf(keyArr[j]);
         let letters = this.alphabet[((this.alphabet.length + (strIndex - keyIndex)) % this.alphabet.length)];
         resultArr.push(letters);
         j++;
