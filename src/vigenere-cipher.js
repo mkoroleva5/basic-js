@@ -20,7 +20,6 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 class VigenereCipheringMachine {
-  type = true;
   constructor(type = true) {
     this.type = type;
   }
