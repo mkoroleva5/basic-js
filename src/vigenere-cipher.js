@@ -31,10 +31,6 @@ class VigenereCipheringMachine {
     if (!string || !key) {
 			throw new Error('Incorrect arguments!');
 		}
-    
-    //if (key.length < string.length) {
-    //  key.repeat(string.length).slice(0, string.length);
-    //}
 
     let strArr = string.toUpperCase().split('');
     let keyArr = key.toUpperCase().split('');
@@ -52,8 +48,12 @@ class VigenereCipheringMachine {
         if (j >= key.length) j = j % keyArr.length;
       }
     }
-    if (this.type) return resultArr.join('');
-    else return resultArr.reverse().join('');
+
+    if (this.type) {
+      return resultArr.join('');
+    } else {
+      return resultArr.reverse().join('');
+    }
   }
 
   decrypt(string, key) {
@@ -77,8 +77,12 @@ class VigenereCipheringMachine {
         if (j >= key.length) j = j % keyArr.length;
       }
     }
-    if (this.type) return resultArr.join('');
-    else return resultArr.reverse().join('');
+    
+    if (this.type) {
+      return resultArr.join('');
+    } else {
+      return resultArr.reverse().join('');
+    }
   }
 }
 
