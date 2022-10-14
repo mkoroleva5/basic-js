@@ -14,7 +14,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 class DepthCalculator {
   calculateDepth(arr) {
-    if (Array.isArray(arr)) return Math.max(...arr.map(item => this.calculateDepth(item))) + 1;
+    if (Array.isArray(arr)) return Math.max(0, ...arr.map(item => this.calculateDepth(item))) + 1;
     else return 0;
   }
 }
